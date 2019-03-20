@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Sariina_ProductsList>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sariina_ProductsList>
+    </modules>
+</config>

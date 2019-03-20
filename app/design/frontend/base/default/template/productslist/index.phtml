@@ -1,0 +1,50 @@
+<?php
+    $products = $this->getProducts();
+?>
+<a class="rss-link" href="<?= $this->getRssLink(); ?>">RSS</a>
+<?php echo $this->getToolbarHtml(); ?>
+<br>
+<table id="pricelist-table">
+    <thead>
+        <tr>
+            <th>نوع کالا</th>
+            <th>نام کالا</th>
+            <th>ویژگی اصلی</th>
+            <th>رنگ</th>
+            <th>گارانتی</th>
+            <th>ترم تسویه</th>
+            <th>تخفیف نقدی</th>
+            <th>قیمت نهایی</th>
+            <th>تغییر قیمت</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php 
+            $manufacturer = '';
+            foreach ($products as $product) :
+                if ($this->isManufacturerRow($product, $manufacturer)) :
+        ?>
+        <tr class="manufacturer">
+            <td colspan="10"><?= $product->getAttributeText('manufacturer'); ?></td>
+        </tr>
+        <?php
+                endif;
+        ?>
+        <tr>
+            <td><?= $this->getAttributeSetName($product); ?></td>
+            <td><?= $product->getName(); ?></td>
+            <td><?= $product->getData('main_feature'); ?></td>
+            <td><?= $product->getAttributeText('color'); ?></td>
+            <td><?= $product->getAttributeText('warranty'); ?></td>
+            <td><?= Mage::helper('currencymanagerfa')->characterReplace($product->getPaymentTerm()); ?> روز</td>
+            <td><?= Mage::getModel('currencymanagerfa/store')->formatPrice((float) $product->getCashDiscount()); ?></td>
+            <td><?= Mage::getModel('currencymanagerfa/store')->formatPrice($product->getFinalPrice(), false); ?></td>
+            <td><?= round($product->getPercent(), 1); ?>%<i class="price-arrow <?= $this->getPriceChange($product->getPercent()); ?>"></i></td>
+            <td><a href="<?= $product->getProductUrl(); ?>">مشاهده</a></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<br>
+<?php echo $this->getToolbarHtml(); ?>

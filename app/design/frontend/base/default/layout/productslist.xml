@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <productslist_list_index>
+        <reference name="content">
+            <block type="productslist/products" name="productslist_list" template="productslist/index.phtml"/>
+        </reference>
+        <reference name="before_body_end">
+            <remove name="algolia-instantsearch-wrapper"/>
+        </reference>
+    </productslist_list_index>
+</layout>

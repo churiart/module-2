@@ -1,0 +1,5 @@
+app/code/local/Sariina/ProductsList/Block/Products.php app/code/local/Sariina/ProductsList/Block/Products.php
+app/code/local/Sariina/ProductsList/controllers/ListController.php app/code/local/Sariina/ProductsList/controllers/ListController.php
+app/design/frontend/base/default/layout/productslist.xml app/design/frontend/base/default/layout/productslist.xml
+app/design/frontend/base/default/template/productslist/index.phtml app/design/frontend/base/default/template/productslist/index.phtml
+app/etc/modules/Sariina_ProductsList.xml app/etc/modules/Sariina_ProductsList.xml

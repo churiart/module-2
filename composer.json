@@ -1,0 +1,11 @@
+{
+    "name": "sariina/productslist",
+    "description": "List of filtered products with their prices",
+    "keywords": ["aasud", "productslist", "price"],
+    "license": "copyright",
+    "Author": "Sariina",
+    "type": "magento-module",
+    "require":{
+      "magento-hackathon/magento-composer-installer": "*"
+    }
+}
